@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<!--
+// Tablet
+// Copyright (c) 2019 Jovan Lanik
+-->
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./src/css/layout.css">
+		<link rel="stylesheet" href="./src/css/fonts.css">
+		<link rel="stylesheet" href="./src/css/style.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script src="./src/js/app.js"></script>
+		<title>Tablet</title>
+	</head>
+	<body onload="pageLoad()">
+		<div id="container">
+			<header>
+				<img id="logo" src="./res/svg/logo.svg">
+				<h1>Tablet</h1>
+			</header>
+			<nav class="card">
+				<button class="button sh" onclick="loadElement('table')">
+					<i class="material-icons">refresh</i>
+					<span>Refresh</span>
+				</button>
+				<i class="material-icons divider">drag_indicator</i>
+				<button class="button sh" onclick="getElement(null, './src/php/?nav=back', ['table', 'date'])">
+					<i class="material-icons">arrow_back</i>
+				</button>
+				<button class="button sh" onclick="openPopup('datePopup', 'Date', './src/php/datePopup.php')">
+					<span id="date" php="./src/php/date.php"></span>
+					<i class="material-icons">expand_more</i>
+				</button>
+				<button class="button sh" onclick="getElement(null, './src/php/?nav=forward', ['table', 'date'])">
+					<i class="material-icons">arrow_forward</i>
+				</button>
+				<i class="material-icons divider">drag_indicator</i>
+				<div class="barItem">
+					<p>Show all</p>
+					<div class="checkCont">
+						<input id="showAllCheck" class="checkMark" onclick="checkChange(this, './src/php/?show=true', './src/php/?show=false', 'table')" type="checkbox">
+						<span class="checkStyle"></span>
+					</div>
+				</div>
+				<div class="separator"></div>
+				<button id="user" class="button sh" onclick="openPopup('userPopup', 'Login', './src/php/userPopup.php')" php="./src/php/user.php"></button>
+			</nav>
+			<main class="card" id="table" php="./src/php/lesson.php">
+			</main>
+			<footer>
+				<p>Střední průmyslová škola elektrotechnická, Praha 10, V Úžlabině 320</p>
+				<p>Copyright (c) 2019 Jovan Lanik</p>
+			</footer>
+		</div>
+	</body>
+</html>

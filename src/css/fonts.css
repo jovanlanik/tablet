@@ -1,0 +1,62 @@
+/*
+// Tablet
+// Copyright (c) 2019 Jovan Lanik
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Condensed|Roboto+Mono|Roboto+Slab');
+
+@font-face {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+}
+
+:root {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+footer {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Product Sans', sans-serif;
+    font-weight: normal;
+}
+
+h1 {
+	font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+	font-size: 1.4rem;
+}
+
+#table td {
+    font-family: 'Roboto Mono', monospace;
+}
+
+#table td:nth-child(1), #table td:nth-child(2) {
+    font-family: 'Roboto Slab', serif;
+}
+
+.button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.barItem {
+    font-size: 0.9rem;
+}
+
+.formCont p {
+    font-family: 'Roboto Mono', monospace;
+}

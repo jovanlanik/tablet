@@ -1,0 +1,254 @@
+/*
+// Tablet
+// Copyright (c) 2019 Jovan Lanik
+*/
+
+:root {
+	--color-b-l: #ffffff;
+	--color-b-m: #eeeeee;
+	--color-b-d: #bcbcbc;
+	--color-f-l: #484848;
+	--color-f-m: #212121;
+	--color-f-d: #000000;
+	--color-f-l-t: #48484814;
+	--color-f-m-t: #21212114;
+	--color-f-d-t: #00000014;
+	--color-p-l: #5e92f3;
+	--color-p-m: #1565c0;
+	--color-p-d-t: #003c8f40;
+	--color-p-l-t: #5e92f340;
+	--color-p-m-t: #1565c040;
+	--color-p-d: #003c8f;
+	--color-s-l: #ff4646;
+	--color-s-m: #ff0000;
+	--color-s-d: #c50000;
+	--color-s-l-t: #ff464640;
+	--color-s-m-t: #ff000040;
+	--color-s-d-t: #c5000040;
+	--shadow-l: 0 0.1rem 4px rgba(0, 0, 0, 10%);
+	--shadow-m: 0 0.1rem 4px rgba(0, 0, 0, 25%);
+	--shadow-d: 0 0.1rem 8px rgba(0, 0, 0, 40%);
+	--trans-full: color 100ms, opacity 50ms, background-color 200ms, box-shadow 400ms;
+	--trans-half: color 50ms, opacity 25ms, background-color 100ms, box-shadow 200ms;
+	--border-roundness: 2px;
+	color: var(--color-f-m);
+	background: var(--color-b-d);
+}
+
+.card, .popupWin {
+	background: var(--color-b-m);
+	box-shadow: var(--shadow-m);
+	border-radius: var(--border-roundness);
+}
+
+header {
+	color: var(--color-b-l);
+	background: var(--color-f-m);
+	box-shadow: var(--shadow-d);;
+}
+
+#table td {
+	border: 1px solid var(--color-b-d);
+}
+
+#table tr:first-child td {
+	border-top: none;
+}
+#table tr td:first-child {
+	border-left: none;
+}
+#table tr:last-child td {
+	border-bottom: none;
+}
+#table tr td:last-child {
+	border-right: none;
+}
+
+#table tr:nth-child(even) {
+	background: var(--color-f-l-t);
+}
+
+#table td.empty > div.lesson {
+	opacity: 0;
+}
+
+#table td.full > div.lesson > div:nth-child(1) {
+	background: var(--color-p-m-t);
+}
+
+#table td.full > div.lesson > div:nth-child(2) {
+	background: var(--color-p-l-t);
+}
+
+#table td.empty > div.lesson,
+#table td.full > div.lesson {
+	transition: var(--trans-full);
+}
+
+#table td.full > div.lesson:hover,
+#table td.empty > div.lesson:hover {
+	background: var(--color-f-m-t);
+	box-shadow: var(--shadow-l);
+	z-index: 1;
+}
+
+#table td.full > div.lesson:hover {
+	color: var(--color-p-d);
+}
+
+#table td.empty > div.lesson:hover {
+	color: var(--color-p-m);
+	opacity: 1;
+}
+
+.divider {
+	color: var(--color-b-d);
+}
+
+.button {
+	color: var(--color-f-l);
+	background: none;
+	border: none;
+	transition: var(--trans-full);
+}
+
+.button:hover {
+	color: var(--color-p-m);
+	transition: var(--trans-half);
+	cursor: pointer;
+}
+
+.button.hot:hover {
+	color: var(--color-s-d);
+}
+
+.button.sh {
+	background: var(--color-f-l-t);
+	border-radius: var(--border-roundness);
+}
+
+.button.sh:hover {
+	background: var(--color-f-d-t);
+	box-shadow: var(--shadow-m);
+}
+
+.button.sh:active {
+	background: var(--color-p-m-t);
+	box-shadow: var(--shadow-d);
+}
+
+.button.current::after {
+	content: "";
+	position: relative;
+	top: 0.3rem;
+	width: calc(100% + 1.2rem);
+	height: 3px;
+	margin: 0 -1rem;
+	background: var(--color-p-m);
+	border-radius: 1.5px;
+}
+
+.popupBack {
+	background-color: #00000080;
+}
+
+.popupTitle {
+	border-bottom: 1px solid var(--color-b-d);
+}
+
+.buttonCont {
+	padding-top: var(--gap-small);
+	border-top: 1px solid var(--color-b-d);
+}
+
+.checkCont {
+	display: block;
+	position: relative;
+	height: 1.6rem;
+}
+
+.checkMark {
+	position: absolute;
+	width: 1.6rem;
+	height: 1.6rem;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 2;
+	cursor: pointer;
+}
+
+.checkStyle {
+	display: block;
+	width: 1.6rem;
+	height: 1.6rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: var(--color-f-l-t);
+	box-shadow: var(--shadow-m);
+	border-radius: 50%;
+	transition: var(--trans-full);
+}
+
+.checkCont:hover .checkStyle {
+	background: var(--color-f-d-t);
+	box-shadow: var(--shadow-d);
+	transition: var(--trans-half);
+}
+
+.checkCont:active .checkStyle {
+	background: var(--color-p-m-t);
+	box-shadow: var(--shadow-d);
+}
+
+.checkCont:hover .checkStyle::after {
+	color: var(--color-p-m);
+}
+
+.checkMark:checked ~ .checkStyle::after {
+	content: "•";
+	line-height: 1.7rem;
+}
+
+.checkStyle::after {
+	color: var(--color-f-l);
+	font-size: 2rem;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	width: 1.6rem;
+	height: 1.6rem;
+	line-height: 1.5rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "-";
+}
+
+.textarea {
+	border: none;
+	background: var(--color-b-l);
+	box-shadow: var(--shadow-l);
+	border-bottom-left-radius: var(--border-roundness);
+	border-bottom-right-radius: var(--border-roundness);
+}
+
+.noteLab {
+	background: var(--color-p-m-t);
+	box-shadow: var(--shadow-l);
+	border-top-left-radius: var(--border-roundness);
+	border-top-right-radius: var(--border-roundness);
+}
+
+.slider {
+	-webkit-appearance: none;
+	appearance: none;
+	height: 0.3rem;
+	border-radius: var(--gap-large);
+	background: #d3d3d3;
+	outline: none;
+	transition: opacity .2s;
+	padding: 0;
+	margin: 0.6rem;
+}
